@@ -21,13 +21,7 @@ public class MemberController {
 	
 	//회원 가입 코드 진행
 	@RequestMapping(value = "/member/memberJoin", method = RequestMethod.POST)
-	public String memberJoin2(String id, String pw, String name, String email, String phone)throws Exception {
-		MemberDTO mDTO = new MemberDTO();
-		mDTO.setId(id);
-		mDTO.setPw(pw);
-		mDTO.setName(name);
-		mDTO.setEmail(email);
-		mDTO.setPhone(phone);
+	public String memberJoin2(MemberDTO mDTO)throws Exception {
 		
 		int result = memberService.memberJoin(mDTO);
 		
