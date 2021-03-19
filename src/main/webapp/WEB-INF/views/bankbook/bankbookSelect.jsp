@@ -1,7 +1,6 @@
-<%@page import="com.iu.s1.bankbook.BankBookDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <% BankBookDTO bDTO = (BankBookDTO)request.getAttribute("dto"); %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,10 +17,13 @@
 			<th>Sale</th>
 		</tr>
 		<tr>
-			<td><%=bDTO.getBookNumber() %><td>
-			<td><%=bDTO.getBookName() %><td>
-			<td><%=bDTO.getBookRate() %><td>
-			<td><%=bDTO.getBookSale() %><td>
+			<c:if test="${empty bDTO}">
+				<td>상품이 없습니다.</td>
+			</c:if>
+			<td>${bDTO.bookNumber}<td>
+			<td>${bDTO.bookName}<td>
+			<td>${bDTO.bookRate}<td>
+			<td>${bDTO.bookSale}<td>
 		</tr>
 	</table>
 </body>

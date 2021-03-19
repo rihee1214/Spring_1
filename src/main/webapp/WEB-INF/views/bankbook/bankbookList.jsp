@@ -1,8 +1,6 @@
-<%@page import="com.iu.s1.bankbook.BankBookDTO"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <% ArrayList<BankBookDTO> arr = (ArrayList<BankBookDTO>)request.getAttribute("bblist"); %>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,20 +9,15 @@
 </head>
 <body>
 	<h1>BankBookList</h1>
-		<table>
+	<table>
+		<c:forEach items="${bblist}" var="dto">
 			<tr>
-				<th>Number</th>
-				<th>Name</th>
-				<th>Rate</th>
-				<th>Sale</th>
+				<td>${dto.bookNumber}</td>
+				<td><a href="./bankbookSelect?bookNumber=${dto.bookNumber}">${dto.bookName}</a></td>
+				<td>${dto.bookRate}</td>
+				<td>${dto.bookSale}</td>
 			</tr>
-			
-			<tr><%for(int i = 0 ; i < arr.size(); i++){ %>
-				<td><%=arr.get(i).getBookNumber() %></td>
-				<td><a href="./bankbookSelect.do?booknumber=<%=arr.get(i).getBookNumber()%>"><%=arr.get(i).getBookName() %></a></td>
-				<td><%=arr.get(i).getBookRate() %></td>
-				<td><%=arr.get(i).getBookSale() %></td>
-			</tr><%} %>
-		</table>
+		</c:forEach>
+	</table>
 </body>
 </html>

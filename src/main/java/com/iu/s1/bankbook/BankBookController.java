@@ -1,7 +1,5 @@
 package com.iu.s1.bankbook;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,9 +34,11 @@ public class BankBookController {
 	}
 	
 	@RequestMapping(value = "/bankbook/bankbookSelect")
-	public void bankbookSelect(BankBookDTO bDTO,HttpServletRequest request) throws Exception {
+	public ModelAndView bankbookSelect(BankBookDTO bDTO,ModelAndView mav) throws Exception {
 		System.out.println("BankBookSelect");
-		request.setAttribute("dto", bankBookService.bankBookSelect(bDTO));
+		mav.setViewName("/bankbook/bankbookSelect");
+		mav.addObject("bDTO",bankBookService.bankBookSelect(bDTO));
+		return mav;
 	}
 	
 	@RequestMapping(value = "/bankbook/bankbookUpdate")
