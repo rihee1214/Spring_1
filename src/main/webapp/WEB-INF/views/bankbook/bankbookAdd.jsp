@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>BankBookAdd</h1>
-	<form method="post">
+	<form action="./bankbookList" method="post">
 		<input type="text" id="bookName" placeholder="Enter bookName" name="bookName">
 		<input type="text" id="bookRate" placeholder="Enter bookRate" name="bookRate">
 		<select id="bookSale" name="bookSale">

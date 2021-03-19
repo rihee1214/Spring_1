@@ -19,5 +19,6 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<form action="./bankbookAdd" method="get"><button>write</button></form>
 </body>
 </html>

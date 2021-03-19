@@ -144,6 +144,8 @@ public class BankBookDAO {
 			bDTO.setBookName(rs.getString("bookName"));
 			bDTO.setBookRate(rs.getDouble("bookRate"));
 			bDTO.setBookSale(rs.getString("bookSale"));
+		}else {
+			bDTO=null;
 		}
 		
 		rs.close();

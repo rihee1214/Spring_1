@@ -25,6 +25,9 @@
 			<td>${bDTO.bookRate}<td>
 			<td>${bDTO.bookSale}<td>
 		</tr>
+		<c:if test="${not empty bDTO}">
+			<form action="./bankbookUpdate?bookNumber=${bDTO.bookNumber}" method="get"><button>Update</button></form>
+		</c:if>
 	</table>
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.iu.s1.bankbook;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,8 +43,18 @@ public class BankBookController {
 	}
 	
 	@RequestMapping(value = "/bankbook/bankbookUpdate")
-	public void bankbookUpdate() {
+	public Model bankbookUpdate(int bookNumber, Model model) {
 		System.out.println("BankBookUpdate");
+		model.addAttribute("number", bookNumber);
+		return model;
+	}
+	
+	@RequestMapping(value = "/bankbook/bankbookUpdate", method = RequestMethod.POST)
+	public String bankbookUpdate(BankBookDTO bDTO)throws Exception {
+		System.out.println("BankBookUpdate");
+		bankBookService.bankBookUpdate(bDTO);
+		System.out.println("입력성공");
+		return "redirect:bankbookList";
 	}
 	
 	@RequestMapping(value = "/bankbook/bankbookRemove")
