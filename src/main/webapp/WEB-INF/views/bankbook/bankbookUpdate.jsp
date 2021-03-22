@@ -9,7 +9,6 @@
 <body>
 	<h1>BankBookUpdate</h1>
 	<form action="./bankbookUpdate" method="post">
-		<input type = "hidden" id="bookNumber" name="bookNumber">${bookNumber}
 		<label>Name : </label><input type="text" id="bookName" name="bookName">
 		<label>Rate : </label><input type="text" id="bookRate" name="bookRate">
 		<label>Sale : </label><select id="bookSale" name="bookSale"><option>Y</option><option>N</option></select>
