@@ -1,5 +1,5 @@
 <%@page import="org.springframework.ui.Model"%>
-<%@page import="com.iu.s1.member.MemberDTO"%>
+<%@page import="com.iu.s3.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% MemberDTO memberDTO = (MemberDTO)request.getAttribute("dto"); %>
